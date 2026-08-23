@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from '../services/api'
 import { io } from 'socket.io-client'
-import { CheckCircleIcon, TruckIcon, PackageIcon, ChefHatIcon, XCircleIcon } from '@heroicons/react/24/solid'
+import { CheckCircleIcon, TruckIcon, ArchiveBoxIcon, FireIcon, XCircleIcon } from '@heroicons/react/24/solid'
 
 const statusSteps = [
   { status: 'PLACED', label: 'Order Placed', icon: CheckCircleIcon },
   { status: 'PAYMENT_CONFIRMED', label: 'Payment Confirmed', icon: CheckCircleIcon },
   { status: 'ACCEPTED', label: 'Accepted', icon: CheckCircleIcon },
-  { status: 'PREPARING', label: 'Preparing', icon: ChefHatIcon },
-  { status: 'READY', label: 'Ready', icon: PackageIcon },
+  { status: 'PREPARING', label: 'Preparing', icon: FireIcon },
+  { status: 'READY', label: 'Ready', icon: ArchiveBoxIcon },
   { status: 'OUT_FOR_DELIVERY', label: 'Out for Delivery', icon: TruckIcon },
   { status: 'DELIVERED', label: 'Delivered', icon: CheckCircleIcon },
 ]
