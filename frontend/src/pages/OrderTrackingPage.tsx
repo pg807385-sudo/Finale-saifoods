@@ -8,8 +8,8 @@ const statusSteps = [
   { status: 'PLACED', label: 'Order Placed', icon: CheckCircleIcon },
   { status: 'PAYMENT_CONFIRMED', label: 'Payment Confirmed', icon: CheckCircleIcon },
   { status: 'ACCEPTED', label: 'Accepted', icon: CheckCircleIcon },
-  { status: 'PREPARING', label: 'Preparing', icon: ChefHatIcon },
-  { status: 'READY', label: 'Ready', icon: PackageIcon },
+  { status: 'PREPARING', label: 'Preparing', icon: FireIcon },
+  { status: 'READY', label: 'Ready', icon: ArchiveBoxIcon },
   { status: 'OUT_FOR_DELIVERY', label: 'Out for Delivery', icon: TruckIcon },
   { status: 'DELIVERED', label: 'Delivered', icon: CheckCircleIcon },
 ]
