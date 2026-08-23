@@ -1,0 +1,20 @@
+name: Unzip Files
+
+on:
+  workflow_dispatch:
+
+jobs:
+  unzip:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Unzip file
+        run: |
+          unzip -o saifoods-complete-fixed.zip -d extracted
+
+      - name: Show extracted files
+        run: |
+          ls -la extracted
