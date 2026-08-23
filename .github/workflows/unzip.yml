@@ -1,20 +1,26 @@
-name: Unzip Files
+name: Extract ZIP
 
 on:
   workflow_dispatch:
 
 jobs:
-  unzip:
+  extract:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Unzip file
+      - name: Extract ZIP and delete it
         run: |
-          unzip -o saifoods-complete-fixed.zip -d extracted
+          unzip saifoods-complete-fixed.zip -d .
+          rm saifoods-complete-fixed.zip
 
-      - name: Show extracted files
+      - name: Commit changes
         run: |
-          ls -la extracted
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          git add .
+          git commit -m "Extract ZIP and remove old file" || echo "No changes to commit"
+          git push
