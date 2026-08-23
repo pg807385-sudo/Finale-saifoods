@@ -1,0 +1,46 @@
+
+> saifoods@1.0.0 db:seed
+> npm run db:seed -w backend
+
+
+> saifoods-backend@1.0.0 db:seed
+> ts-node src/utils/seed.ts
+
+Seeding database...
+prisma:error 
+Invalid `prisma.role.upsert()` invocation in
+/workspaces/Finale-saifoods/backend/src/utils/seed.ts:12:37
+
+   9 const roleNames = ["SUPER_ADMIN", "ADMIN", "ORDER_MANAGER", "MENU_MANAGER"];
+  10 const roles: Record<string, { id: string }> = {};
+  11 for (const name of roleNames) {
+→ 12   roles[name] = await prisma.role.upsert(
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+Seed failed: PrismaClientInitializationError: 
+Invalid `prisma.role.upsert()` invocation in
+/workspaces/Finale-saifoods/backend/src/utils/seed.ts:12:37
+
+   9 const roleNames = ["SUPER_ADMIN", "ADMIN", "ORDER_MANAGER", "MENU_MANAGER"];
+  10 const roles: Record<string, { id: string }> = {};
+  11 for (const name of roleNames) {
+→ 12   roles[name] = await prisma.role.upsert(
+Can't reach database server at `localhost:5432`
+
+Please make sure your database server is running at `localhost:5432`.
+    at $n.handleRequestError (/workspaces/Finale-saifoods/node_modules/@prisma/client/runtime/library.js:121:7615)
+    at $n.handleAndLogRequestError (/workspaces/Finale-saifoods/node_modules/@prisma/client/runtime/library.js:121:6623)
+    at $n.request (/workspaces/Finale-saifoods/node_modules/@prisma/client/runtime/library.js:121:6307)
+    at async l (/workspaces/Finale-saifoods/node_modules/@prisma/client/runtime/library.js:130:9633)
+    at async main (/workspaces/Finale-saifoods/backend/src/utils/seed.ts:12:19) {
+  clientVersion: '5.22.0',
+  errorCode: undefined
+}
+npm error Lifecycle script `db:seed` failed with error:
+npm error code 1
+npm error path /workspaces/Finale-saifoods/backend
+npm error workspace saifoods-backend@1.0.0
+npm error location /workspaces/Finale-saifoods/backend
+npm error command failed
+npm error command sh -c ts-node src/utils/seed.ts
