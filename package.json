@@ -1,0 +1,21 @@
+{
+  "name": "saifoods",
+  "version": "1.0.0",
+  "description": "SaifFoods - Production Ready Food Delivery Platform",
+  "private": true,
+  "workspaces": [
+    "backend",
+    "frontend",
+    "admin"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w backend\" \"npm run dev -w frontend\" \"npm run dev -w admin\"",
+    "build": "npm run build -w backend && npm run build -w frontend && npm run build -w admin",
+    "db:migrate": "npm run db:migrate -w backend",
+    "db:seed": "npm run db:seed -w backend",
+    "test": "npm run test -w backend"
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}

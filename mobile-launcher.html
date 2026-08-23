@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>SaifFoods</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: system-ui; background: #f97316; height: 100vh; display: flex; flex-direction: column; align-items: center; justify-content: center; color: white; }
+        .logo { font-size: 48px; margin-bottom: 16px; }
+        h1 { font-size: 28px; margin-bottom: 8px; }
+        p { opacity: 0.9; margin-bottom: 24px; text-align: center; padding: 0 20px; }
+        .btn { background: white; color: #f97316; padding: 14px 32px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; }
+        .steps { background: rgba(255,255,255,0.15); padding: 20px; border-radius: 12px; margin-top: 24px; max-width: 320px; }
+        .steps h3 { margin-bottom: 12px; font-size: 14px; }
+        .steps ol { padding-left: 20px; font-size: 13px; line-height: 1.8; }
+    </style>
+</head>
+<body>
+    <div class="logo">🍽️</div>
+    <h1>SaifFoods</h1>
+    <p>Delicious food delivered to your door</p>
+    <a href="http://localhost:5173" class="btn">Open App</a>
+
+    <div class="steps">
+        <h3>📱 To use on your phone:</h3>
+        <ol>
+            <li>Install Termux from F-Droid</li>
+            <li>Run: pkg install nodejs-lts</li>
+            <li>cd saifoods/backend && npm install</li>
+            <li>npm run dev</li>
+            <li>Open Chrome → localhost:5173</li>
+        </ol>
+    </div>
+</body>
+</html>
