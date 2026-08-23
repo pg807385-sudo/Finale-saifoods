@@ -3,6 +3,9 @@ name: Extract ZIP
 on:
   workflow_dispatch:
 
+permissions:
+  contents: write
+
 jobs:
   extract:
     runs-on: ubuntu-latest
@@ -10,17 +13,28 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          persist-credentials: true
 
-      - name: Extract ZIP and delete it
+      - name: Find and extract ZIP
         run: |
-          unzip saifoods-complete-fixed.zip -d .
-          rm saifoods-complete-fixed.zip
+          ZIP_FILE=$(find . -maxdepth 2 -type f -name "*.zip" | head -n 1)
 
-      - name: Commit changes
+          if [ -z "$ZIP_FILE" ]; then
+            echo "No ZIP file found."
+            exit 1
+          fi
+
+          echo "Extracting: $ZIP_FILE"
+          unzip -o "$ZIP_FILE" -d .
+          rm "$ZIP_FILE"
+
+      - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
-          git add .
-          git commit -m "Extract ZIP and remove old file" || echo "No changes to commit"
+          git add -A
+          git commit -m "Extract ZIP and remove old file" || echo "Nothing to commit"
           git push
