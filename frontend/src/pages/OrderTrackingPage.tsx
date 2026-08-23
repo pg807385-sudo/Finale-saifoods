@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import api from '../services/api'
 import { io } from 'socket.io-client'
-import { CheckCircleIcon, TruckIcon, PackageIcon, ChefHatIcon, XCircleIcon } from '@heroicons/react/24/solid'
+import { CheckCircleIcon, TruckIcon, ArchiveBoxIcon, FireIcon, XCircleIcon } from '@heroicons/react/24/solid'
 
 const statusSteps = [
   { status: 'PLACED', label: 'Order Placed', icon: CheckCircleIcon },
